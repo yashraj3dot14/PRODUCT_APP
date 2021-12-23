@@ -1,0 +1,21 @@
+{% extends 'userApp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<form action="{% url 'user_reg' %}" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg m-4"><i class="fas fa-database"></i>Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'user_login' %}" class="btn btn-secondary btn-block btn-lg m-4"> <i class="fas fa-list"></i>
+                Login</a>
+        </div>
+    </div>
+</form>
+{% endblock %}
